@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li>
+    </ul>
+    <br>
+    </div>
+
+  <div class="col-md-9 text-center">
+    <div class="panel panel-default">
+      <div class="panel-heading">Edit Your Profile</div>  
+      <div class="panel-body">
+        <div class="container">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f| %>
+            <%= render 'shared/devisemes' %>
+            <div class="col-md-9 text-left">
+              </br></br>
+              <div class="row">
+                <label class="col-xs-4" for="avatar">Profile picture</label>
+                  <div class="col-xs-8">
+                    <%= f.file_field :avatar %>
+                  </div>
+              </div></br></br>
+                             
+
+              <div class="row">
+                <label class="col-xs-4" for="fullname">Fullname</label>
+                  <div class="col-xs-8">
+                    <%= f.text_field :fullname, autofocus: true, :placeholder => "Full Name", :class => 'form-control' %>
+                  </div>
+              </div></br></br>
+              <div class="row">
+                <label class="col-xs-4" for="date_of_birth">Date of Birth</label>
+                  <div class="col-xs-8">
+                  <%= f.date_select :date_of_birth, order: [:day, :month, :year], :start_year=>1910 %>
+                  </div>
+              </div></br></br>
+               <div class="row">
+                <label class="col-xs-4" for="gender">Gender</label>
+                  <div class="col-xs-8">
+                  <%= f.check_box :gender, {}, false %> <%= f.label :gender, "Female" %>
+                  <div class="col-xs-4">
+                  <%= f.check_box :gender, {}, true %> <%= f.label :gender, "Male" %>
+                  </div>
+                  </div>
+              </div></br></br>   
+                           
+            <div class="row">
+                <label class="col-xs-4" for="phone_number">Phone Number</label>
+                  <div class="col-xs-8">
+                    <%= f.text_field :phone_number, :class => 'form-control', :placeholder => 'Phone Number', autofocus: true %>
+                  </div>
+            </div></br> </br>
+           
+            <div class="row">
+                <label class="col-xs-4" for="live_in">Where do you live ???</label>
+                  <div class="col-xs-8">
+                    <%= f.text_field :live_in, :class => 'form-control', autofocus: true  %>
+                  </div>
+              </div></br></br>
+
+            <div class="row">
+                <label class="col-xs-4" for="description">Something about you !!!</label>
+                <div class="col-xs-8">
+                <%= f.text_area :description,:class => 'form-control', autofocus: true %>
+                </div>
+            </div></br></br>
+           
+            </br>                     
+            
+            </br></br><div class="actions">
+              <%= f.submit "Save", :class => "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>  
+  
+    <h3>Cancel my account</h3>
+
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+    <%= link_to "Back", :back %>
+  </div>
+</div>  

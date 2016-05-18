@@ -1,0 +1,2 @@
+module Imagemagick
+end
