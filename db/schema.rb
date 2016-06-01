@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516110739) do
+ActiveRecord::Schema.define(version: 20160601103514) do
+
+  create_table "gears", force: :cascade do |t|
+    t.string   "gear_type"
+    t.integer  "price"
+    t.date     "availabililty"
+    t.string   "location"
+    t.text     "description"
+    t.boolean  "is_insurance"
+    t.boolean  "active"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "gears", ["user_id"], name: "index_gears_on_user_id"
 
   create_table "sessions", force: :cascade do |t|
     t.string   "session_id", null: false

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  
+
   root 'pages#home'
 
   devise_for  :users, 
@@ -9,5 +11,7 @@ Rails.application.routes.draw do
   														 :registrations => 'registrations'}
               
   resources :users, only: [:show,:edit]
-	
+	resources :gears
+
+
 end

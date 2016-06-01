@@ -1,0 +1,76 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+	Create your gear item	
+	</div>
+	<div class="panel-body">
+	<div class="container">
+		<%= form_for @gear do |f| %>
+		<div class="row">
+			<div class="col-md-4 select">
+			<div class="form-group">
+				<label> Gear Type</label>
+				<%= f.select :gear_type, [["Bike","Bike"],["Snowboard","Snowboard"], ["Motorbikes","Motorbikes"]], id: "gear_type", prompt: "Select...", class: "form-control" %>
+			</div>
+			</div>
+
+		</div>
+
+		
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label>Daily Price</label>
+					<div class="input-group">
+						<div class="input-group-addon">$</div>
+						<%= f.text_field :price, placeholder: "eg. $100", class: "form-control" %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+        <div class="row">
+        	<div class="form-group">
+        		<label>Location</label>
+        		<%= f.text_area :location, placeholder: "What is your address", class: "form-control" %>
+        	</div>
+		</div>
+
+
+        <div class="row">
+        	<div class="form-group">
+        		<label>Description</label>
+        		<%= f.text_area :description, row: 5, placeholder: "Tell about your gear", class: "form-control" %>
+        	</div>
+        </div>
+
+
+
+
+
+		<div class="row">
+			
+				<div class="form-group">
+					<%= f.check_box  :is_insurance %> Insurance
+				</div>
+			
+		</div>
+
+
+		<div class="row">
+			<div class="form-group">
+				<%= f.check_box :active %> Active
+			</div>
+		</div>
+
+		<div class="actions">
+			<%= f.submit "Save", class: "btn btn=primary"%>
+		</div>
+
+
+		<% end %>
+	</div>
+		
+	</div>
+
+</div>
