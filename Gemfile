@@ -21,6 +21,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
+
 group :development, :test do
   gem 'byebug'
 

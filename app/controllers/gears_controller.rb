@@ -1,13 +1,13 @@
 class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update]
-  before_action :authenticate_user!, except:[:show]
-  
+  before_action :authenticate_user!, except: [:show]
+
   def index
     @gears= current_user.gears
   end
 
   def show
-    
+    @photos = @gear.photos
   end
 
   def new
@@ -16,21 +16,40 @@ class GearsController < ApplicationController
 
   def create
      @gear = current_user.gears.build(gear_params)
+
      if @gear.save
-      redirect_to @gear, notice: "Saved..."
+      
+      if params[:images]
+        params[:images].each do |image|
+          @gear.photos.create(image: image)
+        end
+      end
+      @photos = @gear.photos
+      redirect_to edit_gear_path(@gear), notice: "Saved..."
     else
       render :new
     end
-
   end
 
   def edit
-    
+    if current_user.id == @gear.user.id
+    @photos = @gear.photos
+  else
+    redirect_to root_path, notice: "You don't have permission."
   end
+ end
 
   def update
     if @gear.update(gear_params)
-      redirect_to @gear, notice: "Updated.."
+
+      if params[:images]
+        params[:images].each do |image|
+          @gear.photos.create(image:image)
+        end
+      end
+    
+      redirect_to edit_gear_path(@gear), notice: "Updated..."
+      
     else
       render :edit
     end
