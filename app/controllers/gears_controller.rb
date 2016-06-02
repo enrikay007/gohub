@@ -44,7 +44,7 @@ class GearsController < ApplicationController
 
       if params[:images]
         params[:images].each do |image|
-          @gear.photos.create(image:image)
+          @gear.photos.create(image: image)
         end
       end
     
@@ -62,7 +62,7 @@ class GearsController < ApplicationController
   end
 
   def gear_params
-      params.require(:gear).permit(:gear_type, :price, :availability, :location, :description, :is_insurance, :active)
+      params.require(:gear).permit(:gear_type, :price, :location, :description, :is_insurance, :active)
   end
 
 end
