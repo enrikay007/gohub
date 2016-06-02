@@ -22,6 +22,11 @@
           <a href="#"><i class="fa fa-home fa-lg"></i> Become a Host</a>
           
         </li>
+
+        <li>
+        <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>Messages</a>
+        </li>
+    
         
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.fullname %> <span class="caret"></span></a>
@@ -37,6 +42,8 @@
          <li> <%= image_tag avatar_url(current_user), class: "round-image-50" %>&nbsp;
         </li>
         <% end %>
+
+      
 
        <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Help<span class="caret"></span></a>
