@@ -1,2 +1,74 @@
-<h1>Gears#show</h1>
-<p>Find me in app/views/gears/show.html.erb</p>
+<div class="panel panel-default">
+	<div class="panel-body">
+		
+	<!-- Image -->
+	<div class="row">
+		<div class="col-md-12">
+			<%= image_tag @photos[0].image.url(), class: "img-responsive" %>
+		</div>
+	</div>
+	
+	<!-- Main Info-->
+	<div class="row">
+		<div class="col-md-8">
+		<div class="row">
+			<div class="col-md-3 text-center">
+			 <%= image_tag avatar_url(@gear.user), class: "img-circle avatar_large" %><br><br>
+		     <%= @gear.user.fullname %>
+			</div>
+			<div class="col-md-9">
+				<h4><%= @gear.listing_name %> </h4>
+				<%= @gear.location %>
+				<div class="row text-center row-space-1">
+					<div class="col-sm-3">
+						<i class= "fa fa-home fa-2x"></i>
+					</div>
+
+					<div class="col-sm-3">
+						<i class= "fa fa-users fa-2x"></i>
+					</div>
+
+					<div class="col-sm-3">
+						<i class= "fa fa-bed fa-2x"></i>
+					</div>
+
+					<div class="col-sm-3">
+						<i class= "fa fa-ship fa-2x"></i>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-sm-3">
+						<%= @gear.gear_type %>
+					</div>
+					<div class="col-sm-3">
+						<%= @gear.accomodate %><%= @gear.accomodate > 1? "Guests" : "Guest" %>
+					</div>
+
+					<div class="col-sm-3">
+						<%= @gear.bed_room %><%= @gear.bed_room > 1? "Bedrooms" : "Bedrooms" %>
+					</div>
+                    
+                    <div class="col-sm-3">
+						<%= @gear.bath_room %><%= @gear.bath_room > 1? "Bathrooms" : "Bathrooms" %>
+					</div>
+
+
+				</div>
+			</div>
+
+		</div>	
+		</div>
+
+
+		<div class="col-md-4">
+			
+
+
+		</div>
+	</div>
+
+
+
+	</div>
+
+</div>

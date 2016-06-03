@@ -32,7 +32,8 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.fullname %> <span class="caret"></span></a>
 
             <ul class="dropdown-menu">
-              <li><a href="#">My Gearlist</a></li>
+              <li><%= link_to "Creat Gear", new_gear_path %></li>
+              <li><%= link_to "My Gearlist", gears_path %></li>
               <li><%= link_to "View My Profile", user_path(current_user.id)%></li>
               <li><%= link_to "Edit My Profile", edit_user_registration_path %></li>
               <li><%= link_to "Change Password", edit_user_path(current_user.id)%></li>
