@@ -3,13 +3,13 @@
 	Create your gear item	
 	</div>
 	<div class="panel-body">
-	 <div class="container">
-
+	   <div class="container">
+	
 		<%= form_for @gear, :html => {multipart: true} do |f| %>
 		<div class="row">
 			<div class="col-md-4 select">
 			<div class="form-group">
-				<label> Gear Type</label>
+				<label> Gear Type:</label>
 				<%= f.select :gear_type, [["Bike","Bike"],["Surfing board","Surfing board"], ["Snow board","Snow board"],["Motorbikes","Motorbikes"],["Tent","Tent"]], id: "gear_type", prompt: "Select...", class: "form-control" %>
 			</div>
 			</div>
@@ -20,7 +20,7 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div class="form-group">
-					<label>Daily Price</label>
+					<label>Daily Price:</label>
 					<div class="input-group">
 						<div class="input-group-addon">$</div>
 						<%= f.text_field :price, placeholder: "eg. $100", class: "form-control" %>
@@ -33,7 +33,7 @@
 
 		<div class="row">
 		<div class="form-group">
-			<label> Listing name</label>
+			<label> Gear specification: name or type of gear</label>
 			<%= f.text_field :listing_name, placeholder: "Be clear and descriptive", class: "form-control" %>
 		</div>
 	
@@ -42,7 +42,7 @@
 
         <div class="row">
         	<div class="form-group">
-        		<label>Location</label>
+        		<label>Address Location:</label>
         		<%= f.text_area :location, placeholder: "What is your address", class: "form-control" %>
         	</div>
 		</div>
@@ -50,7 +50,7 @@
 
         <div class="row">
         	<div class="form-group">
-        		<label>Description</label>
+        		<label>Description:</label>
         		<%= f.text_area :description, row: 5, placeholder: "Tell about your gear", class: "form-control" %>
         	</div>
         </div>

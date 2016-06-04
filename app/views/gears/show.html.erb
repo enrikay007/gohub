@@ -1,72 +1,167 @@
 <div class="panel panel-default">
 	<div class="panel-body">
 		
-	<!-- Image -->
-	<div class="row">
-		<div class="col-md-12">
-			<%= image_tag @photos[0].image.url(), class: "img-responsive" %>
-		</div>
-	</div>
-	
-	<!-- Main Info-->
-	<div class="row">
-		<div class="col-md-8">
-		<div class="row">
-			<div class="col-md-3 text-center">
-			 <%= image_tag avatar_url(@gear.user), class: "img-circle avatar_large" %><br><br>
-		     <%= @gear.user.fullname %>
-			</div>
-			<div class="col-md-9">
-				<h4><%= @gear.listing_name %> </h4>
-				<%= @gear.location %>
-				<div class="row text-center row-space-1">
-					<div class="col-sm-3">
-						<i class= "fa fa-home fa-2x"></i>
-					</div>
-
-					<div class="col-sm-3">
-						<i class= "fa fa-users fa-2x"></i>
-					</div>
-
-					<div class="col-sm-3">
-						<i class= "fa fa-bed fa-2x"></i>
-					</div>
-
-					<div class="col-sm-3">
-						<i class= "fa fa-ship fa-2x"></i>
-					</div>
-				</div>
-				<div class="row text-center">
-					<div class="col-sm-3">
-						<%= @gear.gear_type %>
-					</div>
-					<div class="col-sm-3">
-						<%= @gear.accomodate %><%= @gear.accomodate > 1? "Guests" : "Guest" %>
-					</div>
-
-					<div class="col-sm-3">
-						<%= @gear.bed_room %><%= @gear.bed_room > 1? "Bedrooms" : "Bedrooms" %>
-					</div>
-                    
-                    <div class="col-sm-3">
-						<%= @gear.bath_room %><%= @gear.bath_room > 1? "Bathrooms" : "Bathrooms" %>
-					</div>
-
-
+			<!-- Image -->
+			<div class="row">
+				<div class="col-md-12">
+					<%= image_tag @photos[0].image.url(), class: "img-responsive" if @photos.length > 0 %>
 				</div>
 			</div>
+			
+			<br>
+			<!-- Main Info-->
+			<div class="row">
+				
+				<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-3 text-center">
+					 <%= image_tag avatar_url(@gear.user), class: "img-circle avatar-small" %><br><br>
+				     <%= @gear.user.fullname %>
+					</div>
 
-		</div>	
+					<div class="col-md-9">
+						<h4><%= @gear.listing_name %> </h4>
+						<%= @gear.location %>
+					
+						<div class="row text-center row-space-1">
+							<div class="col-sm-3">
+
+								<i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+								<span class="sr-only">Loading...</span>
+
+							</div>
+
+
+						
+						</div>
+							
+						<div class="row text-center">
+							<div class="col-sm-3">
+								<%= @gear.gear_type %>
+							</div>
+						</div>
+				
+
+					</div>
+				</div>
+
+			</div>	
 		</div>
 
 
 		<div class="col-md-4">
 			
+        <!--Reservation Form -->
+
+		</div>
+	</div>
+
+    <!-- About -->
+    <div class- "row">
+        <div class="col-md-12">
+        	<h2> About this listing </h2>
+        	<p> <%= @gear.description %></p>
+        </div>    	
+    </div>
+
+    <!-- Amenities-->
+    <div class="row">
+    	<div class="col-md-2">
+    		<p>Insurance</p>
+    	</div>
+    	<div class="col-md-10">
+    		<div class="row">
+    			<div class="col-md-6">
+    				<ul class="insurance">
+    					<li class= "<%='text-line-through' if !@gear.is_insurance %>">Is your gear item insured</li> 
+    				</ul>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+		
+		<!-- Carousel -->
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">					
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+			  <% if @photos %>
+			   <!-- Indicators -->
+			  <ol class="carousel-indicators">
+					  <% @photos.each do |photo| %>
+					    <li data-target="#myCarousel" data-slide-to="<%= photo.id %>"></li>
+			    	 <% end%>
+			  		</ol>
+			  <% end %>
+
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner" role="listbox">
+			    <% if @photos %>
+			   		 <% @photos.each do |photo| %>
+			    		<div class="item <%= 'active' if photo.id == @photos[0].id %>">
+			      	<%= image_tag photo.image.url() %>
+			    </div>
+			    	<% end %>
+			    <% end %>
+			  </div>
+
+			  <!-- Left and right controls -->
+			  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+			    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>
+			</div>
 
 
 		</div>
 	</div>
 
+
+
+<br>
+<hr>
+
+
+<!-- Google Map -->
+
+<div class="row">
+	<div class="col-md-12"> 
+
+		<div id="map"></div>
+			<style>
+     		 #map {
+       			 width: 100%;
+      		     height: 400px;
+      				}
+   			 </style>
+
+   			 <script src- "https://maps.googleapis.com/maps/api/js"> </script>
+   			 <script>
+   			 	function initialize (){
+
+   			 		var mapCanvas = document.getElementById('map');
+   			 		var mapOptions = {
+   			 			center: new google.maps.LatLng(<%= @gear.latitude %>, <%= @gear.longitude%>),
+   			 			zoom: 14,
+   			 			mapTypeId: google.maps.MapTypeId.ROADMAP
+   			 		}
+   			 		var map = new google.maps.Map(mapCanvas, mapOptions);
+   			 		var marker = new google.maps.Marker ({
+   			 			position: new google.maps.latLng (<%= @gear.latitude %>, <%= @gear.longitude %>),
+   			 		});
+   			 		marker.setMap(map);
+   			 	}
+   			 	google.maps.event.addDomListener(window, 'load', initialize);
+   			 </script>
+
+
+			</div>
+		</div>
+	
 
 
 	</div>

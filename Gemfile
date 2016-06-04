@@ -14,8 +14,10 @@ gem 'sass-rails', '>= 3.2'
 gem 'devise'
 gem 'toastr-rails'
 gem 'validates_timeliness', '~> 4.0'
+gem 'geocoder'
 
-gem 'paperclip', '~> 3.5.3'
+ 
+gem 'paperclip', '~>4.2'
 gem 'simple_form'
 gem 'omniauth'
 gem 'omniauth-facebook'
