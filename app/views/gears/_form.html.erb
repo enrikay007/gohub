@@ -6,10 +6,11 @@
 	   <div class="container">
 	
 		<%= form_for @gear, :html => {multipart: true} do |f| %>
+		
 		<div class="row">
 			<div class="col-md-4 select">
 			<div class="form-group">
-				<label> Gear Type:</label>
+				<label> Gear Category:</label>
 				<%= f.select :gear_type, [["Bike","Bike"],["Surfing board","Surfing board"], ["Snow board","Snow board"],["Motorbikes","Motorbikes"],["Tent","Tent"]], id: "gear_type", prompt: "Select...", class: "form-control" %>
 			</div>
 			</div>

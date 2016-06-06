@@ -15,6 +15,8 @@ gem 'devise'
 gem 'toastr-rails'
 gem 'validates_timeliness', '~> 4.0'
 gem 'geocoder'
+gem 'mailjet'
+gem 'jquery-ui-rails'
 
  
 gem 'paperclip', '~>4.2'
@@ -27,8 +29,8 @@ gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 group :development, :test do
   gem 'byebug'
-
   gem 'web-console', '~> 2.0'
+  gem 'spring'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -25,24 +25,24 @@ body {
 }
 
 .btn-primary.btn {
-  border: 1px solid #ff5a5f;
+  border: 1px solid #108262;
   border-radius: 2px;
   font-weight: bold;
-  background-color: #ff5a5f;
+  background-color: #108262;
   color: #fff;
   padding: 10px 25px 10px 25px;
 }
 
 .btn-primary.btn:hover, .btn-primary.btn:focus {
-  border-color: #ff7e82;
-  border-bottom-color: #fa0008;
-  background-color: #ff7e82;  
+  border-color: #25a582;
+  border-bottom-color: #25a582;
+  background-color: #25a582;  
   outline:none;
 }
 
 .btn-primary.btn:active {
-  border-color: #e00007;
-  background-color: #e00007;  
+  border-color: #45cea8;
+  background-color: #45cea8;  
   outline:none;
 }
 
@@ -235,5 +235,5 @@ color: #ff5a5f;
 }
 
 .text-line-through {
-text-decoration: line-through;
+text-decoration: line-through
 }

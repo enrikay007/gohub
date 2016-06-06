@@ -15,14 +15,21 @@
 	<div class="panel-body">
 		<% @gears.each do |gear| %>
 		<div class="row">
-			
 			<div class="col-md-2">
+				
+			<div class="col-md-4 right">
+				<h5><%= gear.price %></h5>
+
+			</div>
 				<%= image_tag gear.photos[0].image.url(:thumb) if gear.photos.length > 0 %>
 			</div>
+			<div class="col-md-4 right">
+				<h5><%= gear.gear_type %></h5>
 
-			<div class="col-md-7">
-				<h4><%= gear.listing_name %></h4>
+			</div>
 
+			<div class="col-md-3 right">
+				<h5><%= gear.listing_name %></h5>
 			</div>
 
 			<div class="col-md-3 right">
