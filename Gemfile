@@ -19,7 +19,7 @@ gem 'mailjet'
 gem 'jquery-ui-rails'
 
  
-gem 'paperclip', '~>4.2'
+gem 'paperclip' 
 gem 'simple_form'
 gem 'omniauth'
 gem 'omniauth-facebook'

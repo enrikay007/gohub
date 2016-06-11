@@ -240,7 +240,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
-  paperclip (~> 4.2)
+  paperclip
   rails (= 4.2.1)
   sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
